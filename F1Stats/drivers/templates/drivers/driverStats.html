@@ -1,11 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+  <!--  <link rel="stylesheet" type="text/css" href="{% static 'drivers/style.css' %}"> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <title>{{driver.last_name}}</title>
 </head>
 <body>
+    {{ track_names|json_script:"lbls" }}
+    {{ recent_results|json_script:"results" }}
     <h1>Name: {{ driver.first_name }} {{ driver.last_name }}</h1>
     <h1>Team: {{ driver.constructor }}</h1>
+    <canvas id="canvasRecentPerf"></canvas>
+ <!--   <canvas id="canvasYearPerf"></canvas> -->
+    <script src="{% static 'drivers/chartData.js' %}"></script>
 </body>
 </html>
