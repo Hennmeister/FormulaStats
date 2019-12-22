@@ -1,8 +1,4 @@
 body {
-    background-color: rgba(0,0,0, 0.5);
-}
-
-html {
    background: url("images/Fer.jpg") no-repeat center center fixed;
 }
  /* Dropdown Button */
@@ -17,7 +13,9 @@ html {
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: grey;
+  background-color: red;
+  transition: background 1s ease-in-out;
+
 }
 
 /* The search field */
@@ -39,18 +37,20 @@ html {
 .dropdown {
   top: 45vh;
   left: 45vw;
-  position: relative;
+  position: absolute;
   display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: relative;
   background-color: #f6f6f6;
   min-width: 230px;
+  max-height: 30vh;
   border: 1px solid #ddd;
   z-index: 1;
+  overflow: scroll;
 }
 
 /* Links inside the dropdown */
