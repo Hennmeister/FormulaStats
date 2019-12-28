@@ -9,17 +9,20 @@
     <script src="{% static 'drivers/dropdown.js' %}"></script>
     <script src="{% static 'drivers/changeBG.js' %}"></script>
 </head>
-<body>
-    <div class = "dropdown">
-        <button onclick="showDrivers()" class="dropbtn">Select Driver</button>
-        <div id="myDropdown" class="dropdown-content">
-            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-            {% if driver_list %}
-                {% for driver in driver_list %}
-                    <a href="{% url 'driverInfo' driver.id %}">{{ driver.last_name }}</a>
-                {% endfor %}
-            {% endif %}
+<body onclick=closeSearch()>
+    <div class="backgroundImage">
+        <div class="dropdown">
+            <button onclick="showDrivers()" class="dropbtn">Select Driver</button>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search.." id="searchBox"
+                       onkeyup="filterFunction()" onclick=showDrivers()>
+                {% if driver_list %}
+                    {% for driver in driver_list %}
+                        <a href="{% url 'driverInfo' driver.id %}">{{ driver.last_name }}</a>
+                    {% endfor %}
+                {% endif %}
             </div>
+        </div>
     </div>
 </body>
 </html>
