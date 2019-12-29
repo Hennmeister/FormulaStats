@@ -11,18 +11,26 @@
 </head>
 <body onclick=closeSearch()>
     <div class="backgroundImage">
-        <div class="dropdown">
-            <button onclick="showDrivers()" class="dropbtn">Select Driver</button>
-            <div id="myDropdown" class="dropdown-content">
-                <input type="text" placeholder="Search.." id="searchBox"
-                       onkeyup="filterFunction()" onclick=showDrivers()>
-                {% if driver_list %}
-                    {% for driver in driver_list %}
-                        <a href="{% url 'driverInfo' driver.id %}">{{ driver.last_name }}</a>
-                    {% endfor %}
-                {% endif %}
+        <div class="contentWrapper">
+            <h1>Formula Stats</h1>
+                <div class="dropdown">
+                <button onclick="showDrivers()" class="dropbtn">Select Driver</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <input type="text" placeholder="Search by last name" id="searchBox"
+                           onkeyup="filterFunction()" onclick=showDrivers()>
+                    {% if driver_list %}
+                        {% for driver in driver_list %}
+                            <a href="{% url 'driverInfo' driver.id %}">{{ driver.last_name }}</a>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
         </div>
+        <footer>
+          <div class="footerEle"><a href="http://henning.lindig.ca">Henning Lindig</a></div>
+          <div class="footerEle"><a href="https://github.com/Hennmeister">Github</a></div>
+          <div class="footerEle"><a href="http://ergast.com/mrd/">Data</a></div>
+        </footer>
     </div>
 </body>
 </html>
