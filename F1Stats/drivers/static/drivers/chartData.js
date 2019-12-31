@@ -1,6 +1,4 @@
 function processChartData() {
-    console.log(document.getElementById("lbls"))
-    console.log(document)
 	let lbls = JSON.parse(document.getElementById("lbls").textContent);
 	let races = JSON.parse(document.getElementById("results").textContent);
 	//let d = JSON.parse(document.getElementById('driver').textContent);
@@ -36,7 +34,8 @@ function processChartData() {
                 text: 'Recent Performance',
                 fontColor: '#666',
                 fontSize: 40
-            }
+            },
+            responsive: false
         }
     })
 }

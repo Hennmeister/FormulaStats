@@ -40,7 +40,6 @@ footer {
 }
 
 .contentWrapper {
-    top: 20vh;
     width: 100%;
     height: 50vh;
     justify-content: center;
@@ -55,6 +54,71 @@ footer {
      margin: 0 0 58px;
 }
 
+.title {
+    top: 20vh;
+    position: absolute;
+}
+
+.driverDataWrapper {
+    width: 100%;
+    height: 150vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: absolute;
+    color: red;
+    background-color: #f5f5f5;
+}
+
+.driverDataContainer {
+    position: absolute;
+    top: 5vh;
+    width: 60vw;
+    height: 140vh;
+    background-color: white;
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    border: solid black 1px;
+    border-radius: 25px;
+    color: black;
+}
+
+.driverDataWrapper h1, h3 {
+    text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50vw;
+  table-layout: fixed;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th {
+    height: 75px;
+    vertical-align: center;
+}
+
+th, td {
+    padding: 10px;
+}
+
+tr:first-child{
+    background: rgba(255, 0, 0, 0.9);
+}
+
+tr:nth-child(2n) {
+    background: rgba(245, 245, 245);
+}
+
+#canvasRecentPerf {
+    width: 50vw;
+    margin: 6vh;
+}
  /* Dropdown Button */
 .dropbtn {
   background-color: black;
@@ -93,7 +157,7 @@ footer {
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  top: 25vh;
+  top: 50vh;
   position: absolute;
   display: inline-block;
 }

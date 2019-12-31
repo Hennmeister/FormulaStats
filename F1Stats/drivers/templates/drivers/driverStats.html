@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <!--  <link rel="stylesheet" type="text/css" href="{% static 'drivers/style.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'drivers/style.css' %}">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <title>{{driver.last_name}}</title>
 </head>
@@ -12,10 +12,54 @@
     {{ track_names|json_script:"lbls" }}
     {{ recent_results|json_script:"results" }}
     {{ d|json_script:"driver" }}
-    <h1>Name: {{ driver.first_name }} {{ driver.last_name }}</h1>
-    <h1>Team: {{ driver.constructor }}</h1>
-    <canvas id="canvasRecentPerf"></canvas>
- <!--   <canvas id="canvasYearPerf"></canvas> -->
+    <div class="driverDataWrapper">
+        <div class="driverDataContainer">
+            <h1>Name: {{ driver.first_name }} {{ driver.last_name }}</h1>
+            <h2>Team: {{ driver.constructor }}</h2>
+            <h3>Career Stats</h3>
+            <table>
+                <tr>
+                    <th>Wins</th>
+                    <th>Podiums</th>
+                    <th>Poles</th>
+                    <th>Points</th>
+                    <th>Seasons</th>
+                    <th>Races</th>
+                </tr>
+                <tr>
+                    <th>{{ driver.career_wins }}</th>
+                    <th>{{ driver.career_podiums }}</th>
+                    <th>{{ driver.career_poles }}</th>
+                    <th>{{ driver.career_points }}</th>
+                    <th>{{ driver.career_seasons }}</th>
+                    <th>{{ driver.career_races }}</th>
+                </tr>
+            </table>
+            <h3>Season Stats</h3>
+            <table>
+                <tr>
+                    <th>Wins</th>
+                    <th>Podiums</th>
+                    <th>Points</th>
+                    <th>Position</th>
+                    <th>Average Overtakes</th>
+                    <th>Win Rate vs Teammate</th>
+                    <th>DNF Rate</th>
+                </tr>
+                <tr>
+                    <th>{{ driver.season_wins }}</th>
+                    <th>{{ driver.season_podiums }}</th>
+                    <th>{{ driver.season_points }}</th>
+                    <th>{{ driver.season_position }}</th>
+                    <th>{{ driver.season_avg_overtakes }}</th>
+                    <th>{{ driver.season_beat_teammate_rate }}</th>
+                    <th>{{ driver.season_DNF_rate }}</th>
+                </tr>
+            </table>
+
+            <canvas id="canvasRecentPerf"></canvas>
+        </div>
+    </div>
     <script src="{% static 'drivers/chartData.js' %}"></script>
 </body>
 </html>
